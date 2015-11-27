@@ -1,0 +1,8 @@
+sudo docker build -t lasote/hello .
+sudo docker run --name myhello lasote/hello /bin/sh -c "while true; do echo Hello World; sleep 5; done"
+sudo docker push lasote/hello
+
+sudo cp lasohello.service /etc/systemd/system
+sudo systemctl enable lasohello.service
+sudo systemctl start lasohello.service
+sudo systemctl stop lasohello.service

@@ -1,0 +1,16 @@
+[Unit]
+Description=ConanServer
+After=docker.service
+Requires=docker.service
+
+[Service]
+TimeoutStartSec=0
+ExecStartPre=-/usr/bin/docker kill lasote/hello
+ExecStartPre=-/usr/bin/docker rm lasote/hello
+ExecStartPre=/usr/bin/docker pull lasote/hello
+ExecStart=/usr/bin/docker run --name hello1 lasote/hello /bin/sh -c "while true; do echo Hello World; sleep 5; done"
+ExecStop=/usr/bin/docker stop hello1
+
+[Install]
+WantedBy=multi-user.target
+
