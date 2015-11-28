@@ -1,0 +1,20 @@
+etcdctl member list
+
+etcdctl member remove 
+
+
+fleetctl destroy hello_server@1.service
+fleetctl destroy hello_server@2.service
+fleetctl destroy hello_server@3.service
+
+fleetctl destroy hello_webapi@1.service
+fleetctl destroy hello_webapi@2.service
+fleetctl destroy hello_webapi@3.service
+
+fleetctl start hello_server@1.service
+fleetctl start hello_server@2.service
+fleetctl start hello_server@3.service
+
+fleetctl start hello_webapi@1.service
+fleetctl start hello_webapi@2.service
+fleetctl start hello_webapi@3.service

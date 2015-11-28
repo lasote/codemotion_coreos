@@ -5,8 +5,8 @@ Description=HelloServer
 ExecStartPre=-/usr/bin/docker pull lasote/hello_server
 ExecStartPre=-/usr/bin/docker kill hello_webapi-%i
 ExecStartPre=-/usr/bin/docker rm hello_webapi-%i
-ExecStart=/usr/bin/docker run --rm --name hello_webapi-%i -p 80:8080 lasote/hello_webapi python server.py
+ExecStart=/usr/bin/docker run --rm --name hello_webapi-%i -p 81:8080 lasote/hello_server python webapi.py
 ExecStop=/usr/bin/docker stop hello_webapi-%i
 
 [X-Fleet]
-Conflicts=hello_server-%i@*.service
+Conflicts=hello_webapi-%i@*.service
